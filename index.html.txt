@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevuno - Boost Your Productivity</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h2>Trevuno</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="use.html">Use</a>
+            <a href="download.html">Download</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Trevuno</h1>
+        <p>Your ultimate productivity and motivation companion</p>
+        <button onclick="window.location.href='use.html'">Get Started</button>
+    </section>
+
+    <section class="container">
+        <h2>Why Trevuno?</h2>
+        <p>Plan efficiently, track your tasks, and stay motivated to reach your goals.</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Trevuno. All Rights Reserved.
+    </footer>
+</body>
+</html>
