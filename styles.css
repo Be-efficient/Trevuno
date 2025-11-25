@@ -141,6 +141,22 @@ nav {
 .feature-card.motivate {
     background: linear-gradient(135deg, #5567FF, #7A5FFF);
 }
+<div class="features">
+  <div class="feature-card organize">
+    <h3>Organize</h3>
+    <p>Declutter your space. Manage your tasks.</p>
+  </div>
+  <div class="feature-card productivity">
+    <h3>Productivity</h3>
+    <p>Goal setting. Habit building.</p>
+  </div>
+  <div class="feature-card motivate">
+    <h3>Motivate</h3>
+    <p>Daily inspiration. Mindset shift.</p>
+  </div>
+</div>
+
+
 
 
 
