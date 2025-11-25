@@ -160,9 +160,39 @@ nav {
   }
 }
 
-body {
-  background: pink;
+/* === Feature Cards Custom Styling === */
+.panels .card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  color: white;
+  text-align: center;
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.panels .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.panels .card:nth-child(1) {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+}
+
+.panels .card:nth-child(2) {
+  background: linear-gradient(135deg, #4ecdc4 0%, #45b7af 100%);
+}
+
+.panels .card:nth-child(3) {
+  background: linear-gradient(135deg, #5567ff 0%, #7a5fff 100%);
+}
+
+
 
 
 
