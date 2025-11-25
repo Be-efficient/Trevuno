@@ -112,4 +112,62 @@ nav {
     justify-content: center;
     backdrop-filter: blur(2px);
 }
+/* === Feature Cards Custom Styling === */
+.card {
+  width: 300px;
+  height: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  position: absolute;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card.organize {
+  background-color: #FF6B6B;
+  top: 100px;
+  left: 50px;
+}
+
+.card.productivity {
+  background-color: #4ECDC4;
+  top: 300px;
+  right: 50px;
+}
+
+.card.motivate {
+  background-color: #5567FF;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* === Sign-Up Page Styling === */
+.signup-page {
+  background-image: url('IMG_2982.jpeg'); /* Update this later */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  color: white;
+  width: 300px;
+}
+
+
 
