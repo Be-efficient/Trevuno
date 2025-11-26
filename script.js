@@ -8,3 +8,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+window.addEventListener("load", () => {
+    const cards = document.querySelectorAll(".card");
+    let delay = 200;
+
+    cards.forEach(card => {
+        setTimeout(() => {
+            card.classList.add("fly");
+        }, delay);
+        delay += 250;
+    });
+});
