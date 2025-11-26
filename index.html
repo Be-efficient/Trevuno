@@ -10,305 +10,167 @@
 <style>
 :root{
   --accent:#00c6a7;
-  --bg:#f5f6f8;
+  --bg:#0d0f13;
   --card:#ffffff;
   --muted:#7b7f87;
   --dark:#111217;
 }
 
-/* Base */
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-body{background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Montserrat";background:var(--bg);color:#fff;overflow-x:hidden}
 
-/* Header */
-header{
-  position:fixed;left:0;right:0;top:0;z-index:40;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 24px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(15,20,25,0.03);
-}
-.brand{font-weight:700;color:var(--dark)}
-nav a{margin:0 12px;text-decoration:none;color:var(--dark);font-weight:600;font-size:14px}
-.signup{padding:8px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 6px 18px rgba(0,198,167,0.18)}
-
-/* Hero */
+/* CENTER WRAPPER */
 .hero{
-  min-height:88vh; display:flex;align-items:center;justify-content:center;padding-top:70px;
-  position:relative; overflow:hidden;
-  background-image:url('assets/hero.jpg');
-  background-size:cover;background-position:center;background-repeat:no-repeat;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  position:relative;
 }
-.hero::after{
-  content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,12,14,0.35), rgba(8,12,16,0.15));
-}
-.hero-inner{position:relative;z-index:2;text-align:center;width:100%;max-width:1200px;padding:36px}
-.hero h1{color:#fff;font-size:44px;margin:0 0 10px;font-weight:700}
-.hero p{color:rgba(255,255,255,0.9);margin:0 0 28px;font-size:18px}
 
-/* Orb & floating area wrapper */
-.gateway{
-  position:relative; /* establishes local coordinates */
-  display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:44px;width:100%;
-  pointer-events:auto;
-}
-.entry-title{color:#fff;margin:22px 0 6px;font-weight:600}
-.entry-subtitle{color:rgba(255,255,255,0.95);margin:0 0 18px}
-
-/* Crystal ball */
+/* CRYSTAL BALL */
 .orb{
-  width:220px;height:220px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  position:relative; cursor:pointer; z-index:30;
-  box-shadow:0 18px 40px rgba(7,11,14,0.35), inset 0 -8px 24px rgba(0,0,0,0.12);
-  transition: transform .35s cubic-bezier(.2,.9,.2,1);
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), transparent 12%),
-              linear-gradient(180deg, rgba(18,8,48,0.9), rgba(8,6,40,0.78));
-}
-.orb:active{transform:translateY(3px) scale(.995)}
-.glow{position:absolute;inset:-30px;border-radius:50%;filter:blur(28px);opacity:.7;
-  background:radial-gradient(circle at 30% 30%, rgba(122,53,255,0.18), transparent 20%),
-             radial-gradient(circle at 70% 70%, rgba(2,200,167,0.12), transparent 20%);
-  mix-blend-mode:screen}
-.swirl{position:absolute;inset:0;border-radius:50%;mix-blend-mode:screen;
-  background:conic-gradient(from 0turn, rgba(142,64,255,0.18), rgba(2,200,167,0.12), rgba(96,30,255,0.16));
-  animation: swirl 8s linear infinite;opacity:0.95}
-@keyframes swirl{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.surface{width:88%;height:88%;border-radius:50%;overflow:hidden;position:relative;
-  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 15%),
-             linear-gradient(180deg, rgba(24,8,54,0.85), rgba(18,6,48,0.76));
-  display:flex;align-items:center;justify-content:center}
-.sheen{position:absolute;left:6%;top:6%;width:86%;height:86%;border-radius:50%;
-  background:linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));mix-blend-mode:overlay}
-.cta{position:relative;z-index:6;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,0.45)}
-.btn{background:rgba(255,255,255,0.95);border-radius:999px;padding:10px 16px;font-weight:700;color:#241432;border:none;cursor:pointer;box-shadow:0 8px 18px rgba(23,10,40,0.12)}
-
-.hero-area { position:relative; width:100%; height:520px; /* area where cards will live */ }
-
-/* Cards: base style (identical size) */
-.card{
-  --glow: rgba(0,200,167,0.28);
-  position:absolute;
-  left:50%; top:50%; /* start at orb center */
-  width:300px; height:180px;
-  transform: translate(-50%,-50%) scale(0); /* start invisible at center */
-  background:var(--card);
-  border-radius:16px;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-  padding:22px;
-  box-shadow:0 12px 30px rgba(12,18,22,0.06);
-  transition: transform .18s ease, box-shadow .18s ease;
-  opacity:0;
-  z-index:10;
-  will-change:transform,opacity,box-shadow;
+  width:240px;height:240px;border-radius:50%;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6), inset 0 -10px 25px rgba(0,0,0,0.4);
+  background:radial-gradient(circle at 35% 35%, #5531ff, #281063 60%, #15083d);
+  animation: orbFloat 5s ease-in-out infinite;
 }
 
-/* Emerge animation: moves from center to target (var --tx/--ty) and scales up */
-@keyframes emerge {
-  from { transform: translate(-50%,-50%) scale(0); opacity:0; }
-  to   { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity:1; }
+@keyframes orbFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
 }
 
-/* apply animation when .fly class present; use CSS variable for delay */
-.card.fly {
-  animation: emerge 700ms cubic-bezier(.2,.85,.25,1) forwards;
-  animation-delay: var(--delay, 0ms);
-}
-
-/* Hover effects: pulsate + glow using pseudo-element */
-.card::before{
+.orb::after{
   content:"";
-  position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  box-shadow:0 0 0 0 var(--glow);
-  transition:box-shadow .18s ease, transform .18s ease, opacity .18s ease;
+  position:absolute;inset:-40px;
+  background:radial-gradient(circle, rgba(118,58,255,0.5), transparent 70%);
+  filter:blur(40px);
+  z-index:-1;
+}
+
+/* CARD CONTAINER — 3D POSITIONING */
+.card-field{
+  position:absolute;
+  width:600px;
+  height:600px;
+  pointer-events:none;
+}
+
+.feature-card{
+  width:170px;
+  background:#fff;
+  color:#111;
+  padding:18px;
+  border-radius:14px;
+  position:absolute;
   opacity:0;
+  transform:scale(0.3);
+  text-align:center;
+  box-shadow:0 12px 25px rgba(0,0,0,0.25);
+  pointer-events:auto;
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-@keyframes pulse {
-  0%{ transform:scale(1); box-shadow:0 0 0 0 var(--glow); opacity:1 }
-  50%{ transform:scale(1.03); box-shadow:0 0 40px 10px color-mix(in srgb, var(--glow) 40%, transparent); opacity:1 }
-  100%{ transform:scale(1); box-shadow:0 0 0 0 var(--glow); opacity:1 }
+
+/* HOVER EFFECT: pulse, glow */
+.feature-card:hover{
+  animation:pulse 1.5s infinite;
+  box-shadow:0 0 25px var(--hover-glow);
+  transform:scale(1.08) translateY(-6px);
 }
-.card:hover, .card:focus {
-  transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.02);
-  box-shadow:0 18px 40px rgba(0,0,0,0.12);
-  outline: none;
+
+@keyframes pulse{
+  0%,100%{transform:scale(1.05)}
+  50%{transform:scale(1.1)}
 }
-.card:hover::before, .card:focus::before {
+
+/* POSITIONING & GLOW COLORS */
+.card-organize{
+  --hover-glow:#00e0ff;
+  top:65%; left:10%;
+}
+.card-productivity{
+  --hover-glow:#ff00ea;
+  top:5%; left:60%;
+}
+.card-motivate{
+  --hover-glow:#00ff85;
+  top:70%; left:70%;
+}
+
+/* ENTRANCE ANIMATION */
+.feature-card.show{
   opacity:1;
-  animation: pulse 900ms infinite;
+  transform:scale(1) translateY(0);
 }
 
-/* Colored variants (different glow colors) */
-.organize-card{ --glow: rgba(255,118,118,0.28); /* warm coral */ }
-.productivity-card{ --glow: rgba(78,205,196,0.28); /* teal */ }
-.motivate-card{ --glow: rgba(85,103,255,0.28); /* purple */ }
-
-/* Final logical positions (tx = X px offset, ty = Y px offset) */
-/* Adjust these values to move cards around the orb */
-.organize-card{ --tx:-160px; --ty:120px; --delay: 180ms; }
-.productivity-card{ --tx:180px; --ty:-20px; --delay: 320ms; }
-.motivate-card{ --tx:-120px; --ty:-160px; --delay: 460ms; }
-
-/* Card inner text */
-.card h3{margin:6px 0 8px;font-size:18px;font-weight:700}
-.card p{color:var(--muted);font-size:14px;margin:0; padding:0 8px}
-
-/* small focus-visible ring for accessibility */
-.card:focus-visible{ box-shadow:0 0 0 4px rgba(0,198,167,0.12); transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.04); }
-
-/* Modal */
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,8,12,0.45);z-index:60}
-.modal .panel{background:#fff;border-radius:12px;padding:22px;max-width:480px;width:92%;box-shadow:0 18px 44px rgba(10,12,20,0.28)}
-.modal-desc{color:#666;margin-bottom:10px}
-.actions{margin-top:14px;display:flex;gap:10px;justify-content:flex-end}
-
-/* Responsive tweaks */
-@media (max-width:900px){
-  .card{width:260px;height:160px}
-  .organize-card{ --tx:-120px; --ty:100px; }
-  .productivity-card{ --tx:140px; --ty:-10px; }
-  .motivate-card{ --tx:-100px; --ty:-120px; }
+/* TEXT */
+.hero h1{
+  font-size:38px;
+  margin-bottom:15px;
+  text-align:center;
+  font-weight:700;
 }
-@media (max-width:560px){
-  .hero-inner{padding:18px}
-  .card{width:220px;height:150px}
-  .organize-card{ --tx:-90px; --ty:80px; }
-  .productivity-card{ --tx:110px; --ty:0px; }
-  .motivate-card{ --tx:-80px; --ty:-100px; }
+.hero p{
+  font-size:18px;
+  opacity:0.85;
+  margin-bottom:20px;
 }
 </style>
 </head>
 
 <body>
+<section class="hero">
 
-<header>
-  <div class="brand">Trevuno</div>
-  <nav aria-label="Main navigation">
-    <a href="#organize">Organize</a>
-    <a href="#productivity">Productivity</a>
-    <a href="#motivate">Motivate</a>
-    <a href="#blog">Blog</a>
-  </nav>
-  <a class="signup" href="#signup" id="headerSignup">Sign Up</a>
-</header>
+  <h1>UNLOCK YOUR POTENTIAL</h1>
+  <p>Organize your life. Maximize productivity. Fuel your drive.</p>
 
-<main>
-  <section class="hero" role="banner" aria-label="Hero">
-    <div class="hero-inner">
-      <h1>UNLOCK YOUR POTENTIAL</h1>
-      <p>Organize your life. Maximize productivity. Fuel your drive.</p>
-
-      <!-- HERO area that contains the orb and the floating cards -->
-      <div class="hero-area" aria-hidden="false">
-        <div class="gateway" aria-label="Gateway to signup" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);">
-          <h2 class="entry-title">Enter Your Journey</h2>
-          <p class="entry-subtitle">Click the crystal ball to begin</p>
-
-          <div class="orb" id="crystalOrb" role="button" aria-pressed="false" aria-label="Open signup">
-            <div class="glow" aria-hidden="true"></div>
-            <div class="swirl" aria-hidden="true"></div>
-
-            <div class="surface">
-              <div class="sheen" aria-hidden="true"></div>
-
-              <div class="cta" aria-hidden="false">
-                <div class="hint" style="font-weight:600;color:#fff;margin-bottom:8px">Your productivity starts here</div>
-                <button class="btn" id="orbBtn">Start</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Floating cards (start at orb center, animate out) -->
-        <div class="card organize-card" tabindex="0" role="group" aria-label="Organize card">
-          <h3>Organize</h3>
-          <p>Declutter your space. Manage your tasks.</p>
-        </div>
-
-        <div class="card productivity-card" tabindex="0" role="group" aria-label="Productivity card">
-          <h3>Productivity</h3>
-          <p>Goal setting. Habit building.</p>
-        </div>
-
-        <div class="card motivate-card" tabindex="0" role="group" aria-label="Motivate card">
-          <h3>Motivate</h3>
-          <p>Daily inspiration. Mindset shift.</p>
-        </div>
-      </div>
-
+  <!-- CARDS FLOATING AROUND -->
+  <div class="card-field">
+    <div class="feature-card card-organize">
+      <h3>Organize</h3>
+      <p>Declutter your space. Manage tasks.</p>
     </div>
-  </section>
-</main>
 
-<!-- Sign-up modal -->
-<div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="panel" role="document">
-    <h2>Create your account</h2>
-    <p class="modal-desc">Join Trevuno — reclaim your focus and build momentum.</p>
+    <div class="feature-card card-productivity">
+      <h3>Productivity</h3>
+      <p>Achieve more with clarity.</p>
+    </div>
 
-    <label for="email">Email</label>
-    <input id="email" type="email" placeholder="you@example.com">
-
-    <label for="name">Name</label>
-    <input id="name" type="text" placeholder="Your name">
-
-    <div class="actions">
-      <button class="close" id="modalClose">Cancel</button>
-      <button class="submit" id="modalSubmit">Create account</button>
+    <div class="feature-card card-motivate">
+      <h3>Motivate</h3>
+      <p>Find your internal drive.</p>
     </div>
   </div>
-</div>
 
-<footer>© 2025 Trevuno · Built for focus and real progress</footer>
+  <!-- CRYSTAL BALL -->
+  <div class="orb" id="crystalOrb">
+    <div style="position:absolute;bottom:-35px;font-size:16px;opacity:0.9;">
+      Tap the crystal ball to begin
+    </div>
+  </div>
+
+</section>
 
 <script>
-/* --- interactions: emerge animation, modal, accessibility --- */
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-  // Add 'fly' class to each card so CSS animation runs; delays are defined in CSS variables
-  // Slight stagger handled by each card's --delay var
-  // Use a tiny timeout to ensure layout/readiness (safe synchronous)
-  setTimeout(() => cards.forEach(c => c.classList.add('fly')), 60);
-
-  const orb = document.getElementById('crystalOrb');
-  const orbBtn = document.getElementById('orbBtn');
-  const modal = document.getElementById('signupModal');
-  const modalClose = document.getElementById('modalClose');
-  const headerSignup = document.getElementById('headerSignup');
-
-  function openModal(){
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(){
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-
-  orb.addEventListener('click', openModal);
-  orb.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openModal(); });
-  orbBtn.addEventListener('click', (e) => { e.stopPropagation(); openModal(); });
-  headerSignup.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
-
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeModal(); });
-
-  // Optional: small breathing idle motion on orb to emphasize 'source'
-  (function idleOrb(){
-    let t = 0;
-    setInterval(()=> {
-      t = (t + 0.02) % (Math.PI * 2);
-      const s = 1 + Math.sin(t) * 0.01;
-      orb.style.transform = `scale(${s})`;
-    }, 40);
-  })();
+/* Animate cards outward on page load */
+window.addEventListener("load", () => {
+  document.querySelectorAll(".feature-card").forEach((card, i) => {
+    setTimeout(() => {
+      card.classList.add("show");
+    }, 300 + i * 300);
+  });
 });
 </script>
 
 </body>
 </html>
+
 
 
 
