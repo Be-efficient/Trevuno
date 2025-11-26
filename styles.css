@@ -84,7 +84,7 @@ nav a{margin:0 12px;text-decoration:none;color:var(--dark);font-weight:600;font-
   background:#fff;border-radius:14px;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease, background-color .3s ease;
   opacity:0;
 }
 .card:hover{
@@ -110,11 +110,3 @@ nav a{margin:0 12px;text-decoration:none;color:var(--dark);font-weight:600;font-
 .actions{margin-top:14px;display:flex;gap:10px;justify-content:flex-end;}
 
 footer{padding:26px;text-align:center;color:#7b7f87;font-size:14px;}
-
-/* Responsive */
-@media(max-width:600px){
-  .orb{width:160px;height:160px;}
-  .card{width:160px;height:100px;}
-  .hero h1{font-size:26px;}
-  .hero p{font-size:14px;}
-}
