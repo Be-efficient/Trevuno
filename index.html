@@ -1,172 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Trevuno — Unlock Your Potential</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --accent:#00c6a7;
-  --bg:#0d0f13;
-  --card:#ffffff;
-  --muted:#7b7f87;
-  --dark:#111217;
-}
-
-/* RESET */
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Montserrat";background:var(--bg);color:#fff;overflow-x:hidden}
-
-/* CENTER WRAPPER */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  position:relative;
-}
-
-/* CRYSTAL BALL */
-.orb{
-  width:240px;height:240px;border-radius:50%;
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;
-  box-shadow:0 20px 50px rgba(0,0,0,0.6), inset 0 -10px 25px rgba(0,0,0,0.4);
-  background:radial-gradient(circle at 35% 35%, #5531ff, #281063 60%, #15083d);
-  animation: orbFloat 5s ease-in-out infinite;
-}
-
-@keyframes orbFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
-}
-
-.orb::after{
-  content:"";
-  position:absolute;inset:-40px;
-  background:radial-gradient(circle, rgba(118,58,255,0.5), transparent 70%);
-  filter:blur(40px);
-  z-index:-1;
-}
-
-/* CARD CONTAINER — 3D POSITIONING */
-.card-field{
-  position:absolute;
-  width:600px;
-  height:600px;
-  pointer-events:none;
-}
-
-.feature-card{
-  width:170px;
-  background:#fff;
-  color:#111;
-  padding:18px;
-  border-radius:14px;
-  position:absolute;
-  opacity:0;
-  transform:scale(0.3);
-  text-align:center;
-  box-shadow:0 12px 25px rgba(0,0,0,0.25);
-  pointer-events:auto;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-
-/* HOVER EFFECT: pulse, glow */
-.feature-card:hover{
-  animation:pulse 1.5s infinite;
-  box-shadow:0 0 25px var(--hover-glow);
-  transform:scale(1.08) translateY(-6px);
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1.05)}
-  50%{transform:scale(1.1)}
-}
-
-/* POSITIONING & GLOW COLORS */
-.card-organize{
-  --hover-glow:#00e0ff;
-  top:65%; left:10%;
-}
-.card-productivity{
-  --hover-glow:#ff00ea;
-  top:5%; left:60%;
-}
-.card-motivate{
-  --hover-glow:#00ff85;
-  top:70%; left:70%;
-}
-
-/* ENTRANCE ANIMATION */
-.feature-card.show{
-  opacity:1;
-  transform:scale(1) translateY(0);
-}
-
-/* TEXT */
-.hero h1{
-  font-size:38px;
-  margin-bottom:15px;
-  text-align:center;
-  font-weight:700;
-}
-.hero p{
-  font-size:18px;
-  opacity:0.85;
-  margin-bottom:20px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevuno</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+
+<header>
+    <div class="brand">Trevuno</div>
+</header>
+
 <section class="hero">
+    <div class="hero-inner">
 
-  <h1>UNLOCK YOUR POTENTIAL</h1>
-  <p>Organize your life. Maximize productivity. Fuel your drive.</p>
+        <h1>Welcome to Trevuno</h1>
+        <p>Your guided path to productivity, clarity, and motivation.</p>
 
-  <!-- CARDS FLOATING AROUND -->
-  <div class="card-field">
-    <div class="feature-card card-organize">
-      <h3>Organize</h3>
-      <p>Declutter your space. Manage tasks.</p>
+        <div class="gateway">
+            <h2 class="entry-title">Click the crystal ball to begin</h2>
+
+            <div class="orb" id="orb">
+                <div class="glow"></div>
+                <div class="swirl"></div>
+                <div class="surface">
+                    <div class="sheen"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="floating-cards">
+            <div class="card" id="card1">
+                <h3>Motivation</h3>
+                <p>Boost your energy & mindset.</p>
+            </div>
+
+            <div class="card" id="card2">
+                <h3>Organize</h3>
+                <p>Bring clarity to your day.</p>
+            </div>
+
+            <div class="card" id="card3">
+                <h3>Productivity</h3>
+                <p>Do more with better focus.</p>
+            </div>
+        </div>
+
     </div>
-
-    <div class="feature-card card-productivity">
-      <h3>Productivity</h3>
-      <p>Achieve more with clarity.</p>
-    </div>
-
-    <div class="feature-card card-motivate">
-      <h3>Motivate</h3>
-      <p>Find your internal drive.</p>
-    </div>
-  </div>
-
-  <!-- CRYSTAL BALL -->
-  <div class="orb" id="crystalOrb">
-    <div style="position:absolute;bottom:-35px;font-size:16px;opacity:0.9;">
-      Tap the crystal ball to begin
-    </div>
-  </div>
-
 </section>
 
-<script>
-/* Animate cards outward on page load */
-window.addEventListener("load", () => {
-  document.querySelectorAll(".feature-card").forEach((card, i) => {
-    setTimeout(() => {
-      card.classList.add("show");
-    }, 300 + i * 300);
-  });
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
+
