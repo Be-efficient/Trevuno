@@ -32,3 +32,7 @@ window.addEventListener('load', () => {
     }, 300 + i*200);
   });
 });
+
+document.getElementById("orbBtn").addEventListener("click", () => {
+  document.getElementById("crystalOrb").classList.add("active");
+});
