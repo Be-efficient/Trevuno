@@ -96,10 +96,8 @@ footer {
 
 
 
-.card {
-  position: absolute;
-  z-index: calc(10 - var(--i));
-}
+
+
 
 
 
