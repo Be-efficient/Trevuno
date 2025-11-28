@@ -1,217 +1,84 @@
 :root {
-  /* Controls how far cards spread from the orb */
-  --spread: 140px;
-  --bg: #121212;
-  --panel: #1e1e1e;
-  --teal: #00bcd4;
-  --deep: #004d40;
-  --deep-hover: #00695c;
-  --text: #e0f7fa;
+  --accent: #00c6a7;
+  --bg: #111217;
+  --card: #00c6a7;
+  --dark: #111217;
 }
 
+/* Reset */
 * { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; font-family: "Montserrat", system-ui; }
+body { background: var(--bg); color: #fff; overflow-x: hidden; }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+/* Header */
+header {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 24px;
+  background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+  z-index: 30;
 }
+.brand { font-weight: 700; color: #fff; }
+nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
 
-.navbar {
-  width: 100%;
-  background-color: var(--panel);
-  padding: 1rem;
-  text-align: right;
+/* Gateway */
+.gateway {
+  display: flex; flex-direction: column; align-items: center;
+  margin-top: 120px; gap: 14px;
 }
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  display: inline;
-  margin-left: 2rem;
-}
-
-.navbar a {
-  color: var(--teal);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.container {
-  text-align: center;
-  padding: 2rem 1rem;
-  width: 100%;
-  max-width: 900px;
-}
-
-.intro h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.intro p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: #b2ebf2;
-}
-
-/* Launchpad aligns orb and emerging cards */
-.launchpad {
-  position: relative;
-  display: grid;
-  place-items: center;
-  margin: 2rem auto;
-  width: 360px;
-  height: 160px;
-}
-
-/* Base button styles */
-button {
-  border: none;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
-}
-
-/* Square cards */
-.square {
-  background-color: var(--deep);
-  color: var(--text);
-  position: absolute;          /* Start on top of orb */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);  /* Center over orb initially */
-  z-index: 1;
-}
-
-.square:hover { background-color: var(--deep-hover); }
+.entry-title { font-weight: 600; }
+.entry-subtitle { opacity: 0.8; }
 
 /* Orb */
-.start {
-  background-color: var(--teal);
-  color: #121212;
-  border-radius: 50%;
-  width: 90px;
-  height: 90px;
-  font-weight: bold;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  box-shadow: 0 0 20px rgba(0, 188, 212, 0.45), 0 0 40px rgba(0, 188, 212, 0.25);
+.orb {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle at center, #00c6a7 0%, #007f6e 100%);
+  box-shadow: 0 0 40px rgba(0,198,167,0.6), 0 0 80px rgba(0,198,167,0.3);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 1s ease;
+}
+.orb:hover { transform: scale(1.05); }
+.btn {
+  background: #fff; color: var(--dark); border: none;
+  padding: 10px 20px; border-radius: 8px; font-weight: 700;
+  cursor: pointer;
 }
 
-.start:hover { background-color: #26c6da; }
-
-/* Hidden state (initial) */
-.hidden {
+/* Cards */
+.emerge-cards { position: relative; width: 100%; height: 0; margin-top: 40px; }
+.card {
+  position: absolute; top: 0; left: 50%;
+  width: 80px; height: 80px; border-radius: 12px;
+  background: var(--card);
+  transform: translateX(-50%) scale(0.1);
   opacity: 0;
-  pointer-events: none;
+  animation: cardBurst 1.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.25s);
 }
 
-/* Emergence animations */
-.emerge-left {
-  animation: emerge-left 600ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-.emerge-right {
-  animation: emerge-right 600ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-@keyframes emerge-left {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.7);
-  }
+/* Animation */
+@keyframes cardBurst {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.1); }
   60% {
     opacity: 1;
-    transform: translate(calc(-50% - var(--spread) * 0.6), calc(-50% - 8px)) scale(1.02);
+    transform: translate(calc(-50% + var(--x)), var(--y)) scale(1.12);
   }
   100% {
     opacity: 1;
-    transform: translate(calc(-50% - var(--spread)), calc(-50% - 12px)) scale(1);
+    transform: translate(calc(-50% + var(--x)), var(--y)) scale(1);
   }
 }
 
-@keyframes emerge-right {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.7);
-  }
-  60% {
-    opacity: 1;
-    transform: translate(calc(-50% + var(--spread) * 0.6), calc(-50% - 8px)) scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(calc(-50% + var(--spread)), calc(-50% - 12px)) scale(1);
-  }
+/* Sections */
+section {
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
+section h2 { margin-bottom: 12px; }
 
-/* Organize section */
-.organize h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+/* Footer */
+footer {
+  text-align: center; padding: 20px; font-size: 14px; opacity: 0.7;
 }
-
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  :root { --spread: 95px; }
-
-  .navbar { text-align: center; }
-  .navbar li {
-    display: inline-block;
-    margin: 0 0.75rem;
-  }
-
-  .launchpad {
-    width: 280px;
-    height: 160px;
-  }
-
-  .start {
-    width: 76px;
-    height: 76px;
-  }
-
-  button {
-    padding: 0.9rem 1.2rem;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 380px) {
-  :root { --spread: 78px; }
-
-  .launchpad {
-    width: 240px;
-    height: 150px;
-  }
-
-  .start {
-    width: 70px;
-    height: 70px;
-  }
-}
-
-
