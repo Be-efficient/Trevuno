@@ -127,89 +127,90 @@ nav a {
     margin: 0 0 18px;
 }
 
-/* ----------------------------------------------------------
-   REMOVE OLD ORB SYSTEM (BLURRY LAYERS)
----------------------------------------------------------- */
-.glow,
-.swirl,
-.surface,
-.sheen {
-    display: none !important;
+
+:root {
+  --accent: #00c6a7;
+  --bg: #111217;
+  --card: #00c6a7;
+  --dark: #111217;
 }
 
-/* ----------------------------------------------------------
-   NEW CLEAN ORB SYSTEM
----------------------------------------------------------- */
+/* Reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; font-family: "Montserrat", system-ui; }
+body { background: var(--bg); color: #fff; overflow-x: hidden; }
 
-/* ORB lifts upward */
-.lift-orb {
-  transition: transform 1s cubic-bezier(.16, .83, .45, 1);
+/* Header */
+header {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 24px;
+  background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+  z-index: 30;
+}
+.brand { font-weight: 700; color: #fff; }
+nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
+
+/* Gateway */
+.gateway {
+  display: flex; flex-direction: column; align-items: center;
+  margin-top: 120px; gap: 14px;
+}
+.entry-title { font-weight: 600; }
+.entry-subtitle { opacity: 0.8; }
+
+/* Orb */
+.orb {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle at center, #00c6a7 0%, #007f6e 100%);
+  box-shadow: 0 0 40px rgba(0,198,167,0.6), 0 0 80px rgba(0,198,167,0.3);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 1s ease;
+}
+.orb:hover { transform: scale(1.05); }
+.btn {
+  background: #fff; color: var(--dark); border: none;
+  padding: 10px 20px; border-radius: 8px; font-weight: 700;
+  cursor: pointer;
 }
 
-.lift-orb.active {
-  transform: translateY(-60px);
-}
-
-/* Spread-out cards container */
-.emerge-cards {
-  position: relative;
-  width: 100%;
-  height: 0; 
-  margin-top: 40px;
-}
-
-/* Cards flying outward */
-.emerge-cards .card {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 220px;
-  padding: 20px;
-
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 18px;
-
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-
+/* Cards */
+.emerge-cards { position: relative; width: 100%; height: 0; margin-top: 40px; }
+.card {
+  position: absolute; top: 0; left: 50%;
+  width: 80px; height: 80px; border-radius: 12px;
+  background: var(--card);
   transform: translateX(-50%) scale(0.1);
   opacity: 0;
-
-  /* Stagger + direction */
-  animation: cardBurst 1.8s cubic-bezier(.16,.83,.45,1) forwards;
+  animation: cardBurst 1.8s ease forwards;
   animation-delay: calc(var(--i) * 0.25s);
-
-  /* convert degrees to radians */
-  --rad: calc((var(--angle) * 3.14159) / 180);
 }
 
+/* Animation */
 @keyframes cardBurst {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.1);
-  }
+  0% { opacity: 0; transform: translateX(-50%) scale(0.1); }
   60% {
     opacity: 1;
-    transform:
-      translate(
-        calc(-50% + cos(var(--rad)) * 160px),
-        calc(0px + sin(var(--rad)) * 160px)
-      ) 
-      scale(1.12);
+    transform: translate(calc(-50% + var(--x)), var(--y)) scale(1.12);
   }
   100% {
     opacity: 1;
-    transform:
-      translate(
-        calc(-50% + cos(var(--rad)) * 240px),
-        calc(0px + sin(var(--rad)) * 240px)
-      )
-      scale(1);
+    transform: translate(calc(-50% + var(--x)), var(--y)) scale(1);
   }
+}
+
+/* Sections */
+section {
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+section h2 { margin-bottom: 12px; }
+
+/* Footer */
+footer {
+  text-align: center; padding: 20px; font-size: 14px; opacity: 0.7;
 }
 
 
