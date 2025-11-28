@@ -1,12 +1,20 @@
-// Calculate card positions on load
 window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.card').forEach(card => {
-    const angle = parseFloat(card.style.getPropertyValue('--angle'));
+  const cards = document.querySelectorAll('.card');
+  const total = cards.length;
+  const radius = 240; // distance from orb
+
+  // Position cards evenly around the orb
+  cards.forEach((card, i) => {
+    const angle = (i / total) * 360;
     const rad = angle * Math.PI / 180;
-    const x = Math.cos(rad) * 240;
-    const y = Math.sin(rad) * 240;
+    const x = Math.cos(rad) * radius;
+    const y = Math.sin(rad) * radius;
+
     card.style.setProperty('--x', `${x}px`);
     card.style.setProperty('--y', `${y}px`);
+
+    // Optional: set z-index so front cards overlap nicely
+    card.style.zIndex = total - i;
   });
 
   // Trigger orb lift + card burst
@@ -14,10 +22,11 @@ window.addEventListener('DOMContentLoaded', () => {
   orb.classList.add('active');
 });
 
-// Optional: orb button click adds extra lift effect
+// Orb button click adds extra lift effect
 document.getElementById("orbBtn").addEventListener("click", () => {
   document.getElementById("crystalOrb").classList.add("active");
 });
+
 
 
 
