@@ -7,33 +7,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="container">
-  <div id="orb"></div>
-  <div class="card">Habits</div>
-  <div class="card">Organize</div>
-  <div class="card">Productivity</div>
-  <!-- Add more cards as needed -->
-  <script>
-  const cards = document.querySelectorAll('.card');
-  const container = document.getElementById('container');
-  const rect = container.getBoundingClientRect();
-  const cx = rect.width / 2;
-  const cy = rect.height / 2;
-  const radius = 180;
-  const n = cards.length;
-
-  cards.forEach((card, i) => {
-    const angle = (i / n) * Math.PI * 2 - Math.PI / 2;
-    const x = cx + radius * Math.cos(angle);
-    const y = cy + radius * Math.sin(angle);
-    card.style.transitionDelay = `${i * 80}ms`;
-    card.style.left = `${x}px`;
-    card.style.top = `${y}px`;
-    card.style.transform = 'translate(-50%, -50%) scale(1)';
-    card.style.zIndex = `${Math.round(1000 - (Math.sin(angle) * 100))}`;
-  });
-</script>
-
 
 <header>
   <div class="brand">Trevuno</div>
@@ -87,6 +60,4 @@
 <script src="script.js" defer></script>
 </body>
 </html>
-
-
 
