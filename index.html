@@ -21,24 +21,34 @@
 <main>
 
   <!-- HERO SECTION (unchanged) -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>UNLOCK YOUR POTENTIAL</h1>
-      <p>Organize your life. Maximize productivity. Fuel your drive.</p>
+ <div class="gateway">
+  <h2 class="entry-title">Enter Your Journey</h2>
+  <p class="entry-subtitle">Click the crystal ball to begin</p>
 
-      <!-- ✨ NEW ORB SYSTEM HERE — replaces the old blurry orb -->
-      <section class="orb-section">
-        <div class="orb"></div>
-
-        <div class="emerge-cards">
-          <div class="card" style="--i:0; --angle:230deg;">Motivation</div>
-          <div class="card" style="--i:1; --angle:300deg;">Productivity</div>
-          <div class="card" style="--i:2; --angle:20deg;">Organize</div>
-        </div>
-      </section>
-
+  <!-- OLD ORB RESTORED + NEW BEHAVIOR -->
+  <div class="orb lift-orb" id="crystalOrb">
+    <div class="glow"></div>
+    <div class="swirl"></div>
+    <div class="surface">
+      <div class="sheen"></div>
+      <div class="cta">
+        <div class="hint">Your productivity starts here</div>
+        <button class="btn" id="orbBtn">Start</button>
+      </div>
     </div>
-  </section>
+  </div>
+
+  <!-- NEW CARD SYSTEM WITH DIRECTIONS -->
+  <div class="emerge-cards">
+    <div class="card" style="--i:0; --angle:-40deg;">Organize</div>
+    <div class="card" style="--i:1; --angle:40deg;">Productivity</div>
+    <div class="card" style="--i:2; --angle:130deg;">Motivate</div>
+    <div class="card" style="--i:3; --angle:220deg;">Focus</div>
+    <div class="card" style="--i:4; --angle:310deg;">Habits</div>
+  </div>
+
+</div>
+
 
 </main>
 
@@ -66,3 +76,4 @@
 <script src="script.js" defer></script>
 </body>
 </html>
+
