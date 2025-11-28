@@ -94,37 +94,5 @@ footer {
   text-align: center; padding: 20px; font-size: 14px; opacity: 0.7;
 }
 
-#container {
-  position: relative;
-  width: 600px;
-  height: 600px;
-  margin: auto;
-}
 
-#orb {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #00ffcc, #003333);
-}
-
-.card {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  transition: left 0.6s ease, top 0.6s ease, transform 0.4s ease;
-  width: 120px;
-  height: 80px;
-  background-color: #222;
-  color: #0f0;
-  border: 2px solid #0f0;
-  text-align: center;
-  line-height: 80px;
-  font-family: sans-serif;
-}
 
