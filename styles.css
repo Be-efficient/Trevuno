@@ -7,35 +7,66 @@
 
 /* Reset */
 * { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; font-family: "Montserrat", system-ui; }
-body { background: var(--bg); color: #fff; overflow-x: hidden; }
+html, body { 
+  margin: 0; 
+  height: 100%; 
+  font-family: "Montserrat", system-ui; 
+}
+body { 
+  background: var(--bg); 
+  color: #fff; 
+  overflow-x: hidden; 
+}
 
 /* Header */
 header {
-  position: fixed; top: 0; left: 0; right: 0;
-  display: flex; justify-content: space-between; align-items: center;
+  position: fixed; 
+  top: 0; left: 0; right: 0;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
   padding: 18px 24px;
-  background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.4); 
+  backdrop-filter: blur(8px);
   z-index: 30;
 }
-.brand { font-weight: 700; color: #fff; }
-nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
+.brand { 
+  font-weight: 700; 
+  color: #fff; 
+}
+nav a { 
+  margin: 0 12px; 
+  text-decoration: none; 
+  color: #fff; 
+  font-weight: 600; 
+}
 
 /* Gateway */
 .gateway {
-  display: flex;
-  flex-direction: column;
+  display: flex; 
+  flex-direction: column; 
   align-items: center;
-  margin-top: 200px;
+  margin-top: 200px; 
   gap: 14px;
 }
 .entry-title { font-weight: 600; }
 .entry-subtitle { opacity: 0.8; }
 
-/* ------------------------------------------------------- */
-/* ---------------------- 3D GLASS ORB -------------------- */
-/* ------------------------------------------------------- */
+/* Orb container */
+.orb-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+}
 
+/* ------------------------------------------------ */
+/* ------------------ 3D GLASS ORB ---------------- */
+/* ------------------------------------------------ */
+
+/* Rotation animation */
 @keyframes orbRotate {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -55,7 +86,7 @@ nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
   position: relative;
   margin: 0 auto;
 
-  /* realistic glass gradient */
+  /* Realistic glass */
   background: radial-gradient(circle at 30% 30%,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(255, 255, 255, 0.55) 18%,
@@ -64,22 +95,26 @@ nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
       rgba(15, 25, 40, 0.7) 75%,
       rgba(5, 10, 20, 0.95) 100%);
 
-  /* glow + depth */
   box-shadow:
     0 0 30px rgba(255, 255, 255, 0.35),
     0 0 80px rgba(180, 220, 255, 0.25),
     inset 0 0 40px rgba(255, 255, 255, 0.6),
     inset 0 0 70px rgba(80, 140, 200, 0.45);
 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+
   animation: orbRotate 8s ease-in-out infinite;
   transition: transform 1s ease;
+  z-index: 10;
 }
 
 .orb:hover {
   transform: scale(1.05) translateY(-5px);
 }
 
-/* Top-left reflection */
+/* Top highlight */
 .orb::before {
   content: "";
   position: absolute;
@@ -96,7 +131,7 @@ nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
   filter: blur(18px);
 }
 
-/* Lower reflection */
+/* Bottom reflection */
 .orb::after {
   content: "";
   position: absolute;
@@ -114,67 +149,81 @@ nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
 
 /* Orb button */
 .btn {
-  background: #fff; color: var(--dark); border: none;
-  padding: 12px 22px; border-radius: 10px; font-weight: 700;
+  background: #fff; 
+  color: var(--dark); 
+  border: none;
+  padding: 12px 22px; 
+  border-radius: 10px; 
+  font-weight: 700;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
 }
 
-/* ------------------------------------------------------- */
-/* --------------------- EMERGE CARDS -------------------- */
-/* ------------------------------------------------------- */
+/* ------------------------------------------------ */
+/* ------------------- CARDS ---------------------- */
+/* ------------------------------------------------ */
 
 .emerge-cards {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
   height: 0;
-  margin-top: 40px;
 }
 
 .card {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 0;
   width: 140px;
   height: 140px;
   border-radius: 18px;
+
   background: linear-gradient(135deg, #00e6b8, #009f89);
   color: #fff;
   font-size: 18px;
   font-weight: 700;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  /* start tiny */
-  transform: translateX(-50%) scale(0.1);
+  transform: translate(0, 0) scale(0.1);
   opacity: 0;
 
-  /* burst animation */
   animation: cardBurst 1.8s ease forwards;
   animation-delay: calc(var(--i) * 0.25s);
 
-  /* glow */
   box-shadow: 0 6px 16px rgba(0, 255, 200, 0.35);
+  z-index: calc(5 - var(--i));
+}
+
+.card:hover {
+  transform: translate(var(--x), var(--y)) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 @keyframes cardBurst {
   0% {
     opacity: 0;
-    transform: translate(calc(-50%), 0) scale(0.1);
+    transform: translate(0,0) scale(0.1);
   }
   60% {
     opacity: 1;
-    transform: translate(calc(-50% + var(--x)), var(--y)) scale(1.12);
+    transform: translate(var(--x), var(--y)) scale(1.12);
   }
   100% {
     opacity: 1;
-    transform: translate(calc(-50% + var(--x)), var(--y)) scale(1);
+    transform: translate(var(--x), var(--y)) scale(1);
   }
 }
 
-/* Sections */
+/* ------------------------------------------------ */
+/* --------------- Sections & Footer -------------- */
+/* ------------------------------------------------ */
+
 section {
   padding: 80px 20px;
   max-width: 800px;
@@ -183,12 +232,9 @@ section {
 }
 section h2 { margin-bottom: 12px; }
 
-/* Footer */
 footer {
-  text-align: center; padding: 20px; font-size: 14px; opacity: 0.7;
+  text-align: center; 
+  padding: 20px; 
+  font-size: 14px; 
+  opacity: 0.7;
 }
-
-
-
-
-
