@@ -88,6 +88,19 @@ nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 600; }
   animation-delay: calc(var(--i) * 0.25s);
   z-index: calc(5 - var(--i));
 }
+ .card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate(0, 0);
+  transition: transform 1s ease-out, opacity 0.8s ease-out;
+  opacity: 0;
+}
+
+.card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) translate(var(--x), var(--y));
+}
 
 .card:hover {
   transform: translate(var(--x), var(--y)) scale(1.1);
@@ -113,3 +126,4 @@ section h2 { margin-bottom: 12px; }
 footer {
   text-align: center; padding: 20px; font-size: 14px; opacity: 0.7;
 }
+
