@@ -65,7 +65,7 @@ nav a{margin:0 12px;text-decoration:none;color:var(--muted);font-weight:700}
 /* Hero title: raised further above orb */
 .hero-title{
   position:absolute;
-  top:0px; /* further up */
+  top: 0px; /* further up */
   width:100%;
   text-align:center;
   font-size:6rem;
@@ -169,6 +169,7 @@ footer{ text-align:center; padding:22px; color:rgba(11,11,13,0.62); font-size:13
   .card{ width:100px; height:100px; font-size:13px }
   .hero-title{ font-size:6rem; top:10px; }
 }
+
 
 
 
