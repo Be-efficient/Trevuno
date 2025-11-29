@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trevuno</title>
+<title>Trevuno — Unlock Your Potential</title>
 
-<!-- Tailwind CDN -->
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Lucide icons -->
+<!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide/dist/lucide.js"></script>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -59,11 +59,49 @@
   </nav>
 </header>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <main class="relative z-10 p-6 md:p-12">
   <div class="flex flex-col items-center justify-center py-12">
     <h2 class="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-600 mb-8 tracking-tight">Trevuno</h2>
-    <button class="relative group w-64 h-64 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm text-white text-3xl font-bold hover:scale-110 transition-all">Start</button>
+    
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 w-full max-w-6xl">
+      <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+          <i data-lucide="menu" class="w-8 h-8 text-white"></i>
+        </div>
+        <span class="text-purple-900 font-semibold text-lg">Focus</span>
+      </div>
+
+      <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+          <i data-lucide="target" class="w-8 h-8 text-white"></i>
+        </div>
+        <span class="text-purple-900 font-semibold text-lg">Habits</span>
+      </div>
+
+      <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg">
+          <i data-lucide="lightbulb" class="w-8 h-8 text-white"></i>
+        </div>
+        <span class="text-purple-900 font-semibold text-lg">Motivate</span>
+      </div>
+
+      <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+          <i data-lucide="briefcase" class="w-8 h-8 text-white"></i>
+        </div>
+        <span class="text-purple-900 font-semibold text-lg">Organize</span>
+      </div>
+    </div>
+
+    <!-- Center Start Button -->
+    <button class="relative group">
+      <div class="absolute -inset-8 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-60 group-hover:opacity-90 transition-opacity animate-pulse"></div>
+      <div class="relative w-64 h-64 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm text-white text-3xl font-bold group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+        Start
+      </div>
+    </button>
   </div>
 </main>
 
@@ -73,8 +111,6 @@
 </script>
 </body>
 </html>
-
-
 
 
 
