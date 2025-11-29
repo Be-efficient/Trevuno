@@ -64,44 +64,93 @@
   <div class="flex flex-col items-center justify-center py-12">
     <h2 class="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-600 mb-8 tracking-tight">Trevuno</h2>
     
-    <!-- Feature Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 w-full max-w-6xl">
+    <!-- Desktop Feature Cards -->
+    <div class="hidden md:block relative w-full min-h-[700px] max-w-7xl">
+      <!-- Focus Card - Top Left -->
+      <div class="absolute left-20 top-0 rotate-[-3deg] group cursor-pointer">
+        <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
+          <div class="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+            <i data-lucide="menu" class="w-10 h-10 text-white"></i>
+          </div>
+          <span class="text-purple-900 font-semibold text-xl">Focus</span>
+        </div>
+      </div>
+
+      <!-- Habits Card - Top Right -->
+      <div class="absolute right-20 top-20 rotate-[4deg] group cursor-pointer">
+        <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
+          <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-[-12deg] transition-transform duration-300">
+            <i data-lucide="target" class="w-10 h-10 text-white"></i>
+          </div>
+          <span class="text-purple-900 font-semibold text-xl">Habits</span>
+        </div>
+      </div>
+
+      <!-- Motivate Card - Bottom Left -->
+      <div class="absolute left-32 bottom-0 rotate-[2deg] group cursor-pointer">
+        <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
+          <div class="w-20 h-20 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-[15deg] transition-transform duration-300">
+            <i data-lucide="lightbulb" class="w-10 h-10 text-white"></i>
+          </div>
+          <span class="text-purple-900 font-semibold text-xl">Motivate</span>
+        </div>
+      </div>
+
+      <!-- Organize Card - Bottom Right -->
+      <div class="absolute right-32 bottom-20 rotate-[-2deg] group cursor-pointer">
+        <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
+          <div class="w-20 h-20 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-[-15deg] transition-transform duration-300">
+            <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
+          </div>
+          <span class="text-purple-900 font-semibold text-xl">Organize</span>
+        </div>
+      </div>
+
+      <!-- Center Start Button -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 relative group">
+        <div class="absolute -inset-8 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-60 group-hover:opacity-90 transition-opacity animate-pulse"></div>
+        <div class="relative w-64 h-64 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm text-white text-3xl font-bold group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+          Start
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Feature Cards (Stacked) -->
+    <div class="md:hidden flex flex-col gap-6 px-4">
       <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
         <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
           <i data-lucide="menu" class="w-8 h-8 text-white"></i>
         </div>
         <span class="text-purple-900 font-semibold text-lg">Focus</span>
       </div>
-
       <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
         <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
           <i data-lucide="target" class="w-8 h-8 text-white"></i>
         </div>
         <span class="text-purple-900 font-semibold text-lg">Habits</span>
       </div>
-
       <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
         <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg">
           <i data-lucide="lightbulb" class="w-8 h-8 text-white"></i>
         </div>
         <span class="text-purple-900 font-semibold text-lg">Motivate</span>
       </div>
-
       <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
         <div class="w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
           <i data-lucide="briefcase" class="w-8 h-8 text-white"></i>
         </div>
         <span class="text-purple-900 font-semibold text-lg">Organize</span>
       </div>
+
+      <!-- Mobile Start Button -->
+      <div class="flex justify-center my-8 relative group">
+        <div class="absolute -inset-4 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 rounded-full blur-2xl opacity-60 group-hover:opacity-90 transition-opacity animate-pulse"></div>
+        <div class="relative w-40 h-40 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm text-white text-2xl font-bold group-hover:scale-110 transition-all duration-500">
+          Start
+        </div>
+      </div>
     </div>
 
-    <!-- Center Start Button -->
-    <button class="relative group">
-      <div class="absolute -inset-8 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-60 group-hover:opacity-90 transition-opacity animate-pulse"></div>
-      <div class="relative w-64 h-64 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm text-white text-3xl font-bold group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-        Start
-      </div>
-    </button>
   </div>
 </main>
 
@@ -111,6 +160,3 @@
 </script>
 </body>
 </html>
-
-
-
