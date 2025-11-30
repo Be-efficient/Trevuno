@@ -1,71 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Trevuno — Unlock Your Potential</title>
-
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-  body { font-family: 'Montserrat', sans-serif; }
-  /* Floating blobs animation */
-  @keyframes blob { 0% {transform: translate(0,0) scale(1);} 33% {transform: translate(30px,-50px) scale(1.1);} 66% {transform: translate(-20px,20px) scale(0.9);} 100% {transform: translate(0,0) scale(1);} }
-  .blob { animation: blob 7s infinite; border-radius: 50%; filter: blur(3xl); mix-blend-mode: multiply; opacity: 0.4; position: absolute; }
-  .delay-2 { animation-delay: 2s; }
-  .delay-4 { animation-delay: 4s; }
-  .delay-6 { animation-delay: 6s; }
-  .delay-8 { animation-delay: 8s; }
-  /* Sidebar slide-in */
-  @keyframes slideIn { from {opacity:0; transform:translateX(-100%);} to {opacity:1; transform:translateX(0);} }
-  .slide-in { animation: slideIn 0.3s ease-out forwards; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trevuno Signup</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="relative overflow-x-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 min-h-screen">
+<body class="min-h-screen bg-[#F3EEF1] relative overflow-hidden">
 
-<!-- Animated Blobs -->
-<div class="blob w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-400 top-20 left-1/4"></div>
-<div class="blob w-96 h-96 bg-gradient-to-br from-yellow-300 to-pink-400 top-40 right-1/4 delay-2"></div>
-<div class="blob w-96 h-96 bg-gradient-to-br from-blue-400 to-purple-400 bottom-40 left-1/3 delay-4"></div>
-<div class="blob w-96 h-96 bg-gradient-to-br from-cyan-300 to-blue-400 top-1/2 right-1/3 delay-6"></div>
-<div class="blob w-96 h-96 bg-gradient-to-br from-pink-400 to-rose-400 bottom-20 right-1/4 delay-8"></div>
+  <!-- Floating Particles -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <!-- 30 small particles -->
+    <div id="particles"></div>
+    <!-- 20 crystal particles -->
+    <div id="crystals"></div>
+  </div>
 
-<!-- Header -->
-<header class="flex justify-between items-center p-6 relative z-10">
-  <div class="text-2xl font-bold text-purple-900">Trevuno</div>
-  <nav class="hidden md:flex gap-8 text-purple-700">
-    <a href="#organize" class="hover:text-purple-900">Organize</a>
-    <a href="#productivity" class="hover:text-purple-900">Productivity</a>
-    <a href="#motivate" class="hover:text-purple-900">Motivate</a>
-  </nav>
-  <button id="menuBtn" class="md:hidden px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-pink-500 text-white font-semibold">Menu</button>
-</header>
+  <!-- Header -->
+  <header class="relative z-10 px-6 md:px-12 py-6 border-b border-[#D56989]/10 bg-white/40 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <button id="backBtn" class="flex items-center gap-2 text-[#D56989] hover:text-[#D56989]/80 transition-colors">
+        <i data-lucide="arrow-left"></i>
+        <span class="font-medium">Back</span>
+      </button>
 
-<!-- Sidebar -->
-<div id="sidebar" class="fixed top-0 left-0 h-full w-full md:w-72 bg-white/30 md:border-r border-white/40 shadow-2xl z-50 hidden p-6 flex flex-col">
-  <h2 class="text-purple-900 text-xl font-bold mb-2">Navigation</h2>
-  <div class="h-1 w-16 bg-gradient-to-r from-violet-500 to-pink-500 rounded-full mb-6"></div>
-  <nav class="flex-1 space-y-3">
-    <a href="#focus" class="block px-4 py-3 rounded-xl bg-white/50 hover:bg-white/70 text-purple-900 transition-all">Focus</a>
-    <a href="#habits" class="block px-4 py-3 rounded-xl hover:bg-white/40 text-purple-700 hover:text-purple-900 transition-all">Habits</a>
-    <a href="#organize" class="block px-4 py-3 rounded-xl hover:bg-white/40 text-purple-700 hover:text-purple-900 transition-all">Organize</a>
-    <a href="#motivate" class="block px-4 py-3 rounded-xl hover:bg-white/40 text-purple-700 hover:text-purple-900 transition-all">Motivate</a>
-  </nav>
-</div>
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#C2DC80] to-[#EA9CAF] flex items-center justify-center shadow-lg">
+          <i data-lucide="rocket" class="text-white"></i>
+        </div>
+        <span class="text-[#D56989] text-xl font-bold">Trevuno</span>
+      </div>
 
-<main class="relative z-10">
-  <!-- Hero Section -->
-  <div class="flex flex-col items-center justify-center py-12 relative">
-    <h1 class="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-600 mb-8 tracking-tight">Trevuno</h1>
-    <div class="relative">
-      <!-- Orb -->
-      <button id="orbBtn" class="relative w-64 h-64 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm font-bold text-white text-3xl hover:scale-110 transition-all">Start</button>
-      
-      <!-- Floating cards -->
-      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-[-200px] flex gap-6">
-        <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-6 flex flex-col items-center shadow-lg">
-          <span>Organize</span
+      <div class="w-20"></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10 px-6 md:px-12 py-12 md:py-20 max-w-6xl mx-auto">
+
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-[#EA9CAF]/20 mb-6">
+        <i data-lucide="sparkles" class="text-[#EA9CAF] w-4 h-4"></i>
+        <span class="text-[#D56989] text-sm font-medium">Start Your Free Trial</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-[#D56989] mb-4">
+        Welcome to <span class="bg-gradient-to-r from-[#C2DC80] via-[#EA9CAF] to-[#D56989] bg-clip-text text-transparent">Trevuno</span>
+      </h1>
+      <p class="text-[#D56989]/70 text-xl max-w-2xl mx-auto">
+        Join thousands of productive individuals and transform how you work.
+      </p>
+    </div>
+
+    <!-- Signup & Plans -->
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+      <!-- Signup Form -->
+      <div class="relative overflow-hidden rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-[#D56989]/20 p-8 md:p-12">
+        <div class="absolute top-0 right-0 w-48 h-48 bg-[#EA9CAF]/10 rounded-full blur-3xl"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#D56989] mb-8">Create Your Account</h2>
+        <form class="space-y-6">
+          <!-- Full Name -->
+          <div>
+            <label class="block text-[#D56989] font-medium mb-2">Full Name</label>
+            <div class="relative">
+              <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#D56989]/40"></i>
+              <input type="text" placeholder="John Doe" class="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/80 border border-[#D56989]/20 text-[#D56989] placeholder:text-[#D56989]/40 focus:outline-none focus:border-[#EA9CAF] transition-colors">
+            </div>
+          </div>
+          <!-- Email -->
+          <div>
+            <label class="block text-[#D56989] font-medium mb-2">Email Address</label>
+            <div class="relative">
+              <i data-lucide="mail" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#D56989]/40"></i>
+              <input type="email" placeholder="you@example.com" class="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/80 border border-[#D56989]/20 text-[#D56989] placeholder:text-[#D56989]/40 focus:outline-none focus:border-[#EA9CAF] transition-colors">
+            </div>
+          </div>
+          <!-- Password -->
+          <div>
+            <label class="block text-[#D56989] font-medium mb-2">Password</label>
+            <div class="relative">
+              <i data-lucide="lock" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#D56989]/40"></i>
+              <input id="passwordInput" type="password" placeholder="Create a strong password" class="w-full pl-12 pr-12 py-4 rounded-2xl bg-white/80 border border-[#D56989]/20 text-[#D56989] placeholder:text-[#D56989]/40 focus:outline-none focus:border-[#EA9CAF] transition-colors">
+              <button type="button" id="togglePassword" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#D56989]/40 hover:text-[#D56989] transition-colors">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+          <!-- Terms -->
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="terms" class="mt-1 w-5 h-5 rounded border-[#D56989]/20 text-[#EA9CAF] focus:ring-[#EA9CAF]">
+            <label for="terms" class="text-[#D56989]/70 text-sm">
+              I agree to the <a href="#" class="text-[#EA9CAF] hover:underline">Terms of Service</a> and <a href="#" class="text-[#EA9CAF] hover:underline">Privacy Policy</a>
+            </label>
+          </div>
+          <!-- Submit -->
+          <button type="submit" class="group relative w-full py-5 rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#D56989] via-[#EA9CAF] to-[#D56989] bg-[length:200%_100%] animate-gradient"></div>
+            <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span class="relative text-white font-bold text-lg flex items-center justify-center gap-2">
+              Start Your Journey
+              <i data-lucide="sparkles" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+            </span>
+          </button>
+          <p class="text-center text-[#D56989]/60 text-sm">
+            Already have an account? <a href="#" class="text-[#EA9CAF] hover:underline font-medium">Sign in</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- Plans Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-[#D56989] mb-6">Choose Your Plan</h2>
+        <!-- Plans will be generated by JS -->
+        <div id="plansContainer" class="space-y-6"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.replace();
+  </script>
+</body>
+</html>
