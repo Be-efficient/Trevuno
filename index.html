@@ -1,158 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trevuno — Unlock Your Potential</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trevuno</title>
 
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
 <!-- Lucide Icons -->
-<script src="https://unpkg.com/lucide/dist/lucide.js"></script>
-<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="styles.css" />
+
 </head>
-<body class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-x-hidden font-sans">
+<body>
 
-<!-- Animated Blobs -->
-<div class="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-<div class="absolute top-40 right-1/4 w-96 h-96 bg-gradient-to-br from-yellow-300 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
-<div class="absolute bottom-40 left-1/3 w-96 h-96 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
-<div class="absolute top-1/2 right-1/3 w-96 h-96 bg-gradient-to-br from-cyan-300 to-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-6000"></div>
-<div class="absolute bottom-20 right-1/4 w-96 h-96 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-8000"></div>
-
-<!-- Sidebar -->
-<div id="sidebar" class="fixed left-0 top-0 h-full w-full md:w-72 bg-white/30 md:border-r border-white/40 shadow-2xl z-50 hidden animate-slideIn p-6 flex flex-col">
-  <h2 class="text-purple-900 text-xl md:text-2xl font-bold mb-2">Navigation</h2>
-  <div class="h-1 w-16 bg-gradient-to-r from-violet-500 to-pink-500 rounded-full mb-6"></div>
-  <nav class="flex-1 space-y-3">
-    <a href="#" class="block px-4 py-3 rounded-xl bg-white/50 hover:bg-white/70 text-purple-900 transition-all duration-300 flex items-center gap-3">
-      <i data-lucide="target" class="w-5 h-5"></i> Focus
-    </a>
-    <a href="#" class="block px-4 py-3 rounded-xl hover:bg-white/40 text-purple-700 hover:text-purple-900 transition-all duration-300 flex items-center gap-3">
-      <i data-lucide="menu" class="w-5 h-5"></i> Habits
-    </a>
-    <a href="#" class="block px-4 py-3 rounded-xl hover:bg-white/40 text-purple-700 hover:text-purple-900 transition-all duration-300 flex items-center gap-3">
-      <i data-lucide="briefcase" class="w-5 h-5"></i> Organize
-    </a>
-    <a href="#" class="block px-4 py-3 rounded-xl hover:bg-white/40 text-purple-700 hover:text-purple-900 transition-all duration-300 flex items-center gap-3">
-      <i data-lucide="lightbulb" class="w-5 h-5"></i> Motivate
-    </a>
-  </nav>
+<div class="background">
+  <!-- Colorful Blobs -->
+  <div class="blob purple-pink"></div>
+  <div class="blob yellow-pink delay-2"></div>
+  <div class="blob blue-purple delay-4"></div>
+  <div class="blob cyan-blue delay-6"></div>
+  <div class="blob pink-rose delay-8"></div>
 </div>
 
-<!-- Header -->
-<header class="flex flex-col md:flex-row items-start md:items-center justify-between p-6 relative z-10">
-  <div class="flex items-center gap-3 md:gap-6 w-full md:w-auto">
-    <button id="menuBtn" class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-pink-500 text-white font-semibold">Menu</button>
-    <div class="flex items-center gap-3">
-      <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg relative overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <i data-lucide="rocket" class="w-6 h-6 md:w-7 md:h-7 text-white relative z-10 group-hover:-translate-y-1 group-hover:rotate-12 transition-transform duration-300"></i>
-      </div>
-      <h1 class="text-purple-900 text-2xl md:text-3xl font-bold tracking-tight">Trevuno</h1>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar hidden">
+  <div class="sidebar-inner">
+    <h2>Navigation</h2>
+    <div class="sidebar-line"></div>
+
+    <nav>
+      <a><i data-lucide="target"></i> Focus</a>
+      <a><i data-lucide="menu"></i> Habits</a>
+      <a><i data-lucide="briefcase"></i> Organize</a>
+      <a><i data-lucide="lightbulb"></i> Motivate</a>
+    </nav>
+
+    <div class="premium-box">
+      <p class="premium-title">Premium Features</p>
+      <p class="premium-sub">Unlock advanced tools</p>
     </div>
   </div>
-  <nav class="hidden md:flex gap-8 text-purple-600">
-    <a href="#" class="hover:text-purple-900">Organize</a>
-    <a href="#" class="hover:text-purple-900">Productivity</a>
-    <a href="#" class="hover:text-purple-900">Motivate</a>
-  </nav>
-</header>
+</div>
 
-<!-- Hero Section -->
-<main class="relative z-10 p-6 md:p-12">
-  <div class="flex flex-col items-center justify-center py-12">
-    <h2 class="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-600 mb-8 tracking-tight">Trevuno</h2>
+<!-- MAIN CONTENT -->
+<div id="content" class="content">
+  <header class="header">
+    <div class="header-left">
+      <button id="toggleBtn" class="menu-btn">Menu</button>
 
-    <!-- Hero container: orb + cards -->
-    <div class="relative w-full min-h-[700px] max-w-7xl mx-auto">
-
-      <!-- Center Orb -->
-      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 relative group">
-        <div class="absolute -inset-8 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-60 group-hover:opacity-90 transition-opacity animate-pulse"></div>
-        <div class="relative w-64 h-64 rounded-full bg-gradient-to-br from-violet-400 via-purple-400 to-pink-400 flex items-center justify-center shadow-2xl border-4 border-white/60 backdrop-blur-sm text-white text-3xl font-bold group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-          Start
+      <div class="logo-wrap">
+        <div class="logo-icon">
+          <i data-lucide="rocket"></i>
         </div>
+        <h1>Trevuno</h1>
+      </div>
+    </div>
+
+    <nav class="header-nav">
+      <a>Organize</a>
+      <a>Productivity</a>
+      <a>Motivate</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2 class="hero-title">Trevuno</h2>
+
+    <!-- FEATURE CARDS CONTAINER -->
+    <div class="feature-container">
+
+      <!-- Mobile layout -->
+      <div class="mobile-cards">
+        <div class="card"><div class="icon cyan"><i data-lucide="menu"></i></div><span>Focus</span></div>
+        <div class="card"><div class="icon purple"><i data-lucide="target"></i></div><span>Habits</span></div>
+        <div class="card"><div class="icon pink"><i data-lucide="lightbulb"></i></div><span>Motivate</span></div>
+        <div class="card"><div class="icon violet"><i data-lucide="briefcase"></i></div><span>Organize</span></div>
+
+        <div class="start-btn-mobile">Start</div>
       </div>
 
-      <!-- Desktop Feature Cards -->
-      <div class="hidden md:block">
-        <!-- Focus Card -->
-        <div class="absolute left-20 top-0 rotate-[-3deg] group cursor-pointer">
-          <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
-            <div class="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
-              <i data-lucide="menu" class="w-10 h-10 text-white"></i>
-            </div>
-            <span class="text-purple-900 font-semibold text-xl">Focus</span>
-          </div>
+      <!-- Desktop layout -->
+      <div class="desktop-cards">
+
+        <div class="desk-card c1">
+          <div class="icon cyan large"><i data-lucide="menu"></i></div>
+          <span>Focus</span>
         </div>
 
-        <!-- Habits Card -->
-        <div class="absolute right-20 top-20 rotate-[4deg] group cursor-pointer">
-          <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
-            <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-[-12deg] transition-transform duration-300">
-              <i data-lucide="target" class="w-10 h-10 text-white"></i>
-            </div>
-            <span class="text-purple-900 font-semibold text-xl">Habits</span>
-          </div>
+        <div class="desk-card c2">
+          <div class="icon purple large"><i data-lucide="target"></i></div>
+          <span>Habits</span>
         </div>
 
-        <!-- Motivate Card -->
-        <div class="absolute left-32 bottom-0 rotate-[2deg] group cursor-pointer">
-          <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
-            <div class="w-20 h-20 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-[15deg] transition-transform duration-300">
-              <i data-lucide="lightbulb" class="w-10 h-10 text-white"></i>
-            </div>
-            <span class="text-purple-900 font-semibold text-xl">Motivate</span>
-          </div>
+        <div class="desk-card c3">
+          <div class="icon pink large"><i data-lucide="lightbulb"></i></div>
+          <span>Motivate</span>
         </div>
 
-        <!-- Organize Card -->
-        <div class="absolute right-32 bottom-20 rotate-[-2deg] group cursor-pointer">
-          <div class="bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-12 hover:bg-white/80 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-110 hover:rotate-0 flex flex-col items-center gap-5">
-            <div class="w-20 h-20 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-[-15deg] transition-transform duration-300">
-              <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
-            </div>
-            <span class="text-purple-900 font-semibold text-xl">Organize</span>
-          </div>
+        <div class="desk-card c4">
+          <div class="icon violet large"><i data-lucide="briefcase"></i></div>
+          <span>Organize</span>
         </div>
-      </div>
 
-      <!-- Mobile stacked cards -->
-      <div class="md:hidden flex flex-col gap-6 px-4 mt-8">
-        <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
-          <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
-            <i data-lucide="menu" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-purple-900 font-semibold text-lg">Focus</span>
-        </div>
-        <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-            <i data-lucide="target" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-purple-900 font-semibold text-lg">Habits</span>
-        </div>
-        <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
-          <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg">
-            <i data-lucide="lightbulb" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-purple-900 font-semibold text-lg">Motivate</span>
-        </div>
-        <div class="group cursor-pointer bg-white/60 backdrop-blur-xl border-2 border-purple-200/50 rounded-3xl p-8 hover:bg-white/80 transition-all duration-500 shadow-xl flex flex-col items-center gap-4">
-          <div class="w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
-            <i data-lucide="briefcase" class="w-8 h-8 text-white"></i>
-          </div>
-          <span class="text-purple-900 font-semibold text-lg">Organize</span>
-        </div>
+        <div class="start-btn-desktop">Start</div>
       </div>
 
     </div>
-  </div>
-</main>
+  </section>
+</div>
 
-<script src="script.js" defer></script>
+<script src="script.js"></script>
 <script>
-  lucide.createIcons(); // Initialize Lucide icons
+  lucide.createIcons();
 </script>
+
 </body>
 </html>
