@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trevuno Landing Page</title>
+  
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide"></script>
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#F3EEF1] relative overflow-x-hidden font-sans">
+
+  <!-- Floating Crystals -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <!-- Small particles -->
+    <div id="particles-container"></div>
+    <!-- Crystals -->
+    <div id="crystals-container"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-[#F3EEF1]/80 backdrop-blur-xl border-b border-[#D56989]/10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#C2DC80] to-[#EA9CAF] rounded-2xl blur-md opacity-60 animate-pulse-slow"></div>
+          <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#C2DC80] to-[#EA9CAF] flex items-center justify-center shadow-lg">
+            <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+          </div>
+        </div>
+        <span class="text-[#D56989] text-xl md:text-2xl font-bold">Trevuno</span>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#features" class="text-[#D56989]/70 hover:text-[#D56989] transition-colors">Features</a>
+        <a href="#how-it-works" class="text-[#D56989]/70 hover:text-[#D56989] transition-colors">How it Works</a>
+        <a href="#pricing" class="text-[#D56989]/70 hover:text-[#D56989] transition-colors">Pricing</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button id="signup-btn" class="group relative px-6 md:px-8 py-3 md:py-4 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-r from-[#EA9CAF] via-[#D56989] to-[#EA9CAF] bg-[length:200%_100%] animate-gradient"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span class="relative text-white font-semibold flex items-center gap-2">
+            Start for Free
+            <i data-lucide="sparkles" class="w-4 h-4 group-hover:rotate-12 transition-transform"></i>
+          </span>
+        </button>
+
+        <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-[#EA9CAF]/10 flex items-center justify-center">
+          <i data-lucide="menu" class="w-5 h-5 text-[#D56989]"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#D56989]/95 backdrop-blur-xl z-50 p-8 md:hidden hidden">
+    <div class="flex justify-between items-center mb-12">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#C2DC80] to-[#EA9CAF] flex items-center justify-center shadow-lg">
+          <i data-lucide="rocket" class="w-5 h-5 text-white"></i>
+        </div>
+        <span class="text-white text-xl font-semibold">Trevuno</span>
+      </div>
+      <button id="mobile-close" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+        <i data-lucide="x" class="w-6 h-6 text-white"></i>
+      </button>
+    </div>
+    <nav class="space-y-4">
+      <a href="#features" class="block text-white text-2xl font-medium py-3 border-b border-white/20">Features</a>
+      <a href="#how-it-works" class="block text-white text-2xl font-medium py-3 border-b border-white/20">How it Works</a>
+      <a href="#pricing" class="block text-white text-2xl font-medium py-3 border-b border-white/20">Pricing</a>
+    </nav>
+    <button id="mobile-signup-btn" class="mt-12 w-full py-5 rounded-[2rem] bg-white text-[#D56989] font-bold text-lg shadow-2xl">Start for Free</button>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative py-12 md:py-24 px-6 md:px-12 text-center">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.1]">
+        <span class="block text-[#D56989] mb-2">Your Life,</span>
+        <span class="block bg-gradient-to-r from-[#C2DC80] via-[#EA9CAF] to-[#D56989] bg-clip-text text-transparent">
+          Beautifully Organized
+        </span>
+      </h1>
+      <p class="text-[#D56989]/70 text-lg md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed">
+        Experience productivity reimagined with Trevuno. Focus deeply, build lasting habits, organize effortlessly, and stay motivated.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button id="hero-signup-btn" class="group relative px-10 py-5 rounded-[2rem] overflow-hidden shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-r from-[#D56989] via-[#EA9CAF] to-[#D56989] bg-[length:200%_100%] animate-gradient"></div>
+          <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span class="relative text-white font-bold text-lg flex items-center gap-3">
+            Start Your Journey
+            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </button>
+        <button class="px-10 py-5 rounded-[2rem] bg-white/60 backdrop-blur-sm border border-[#D56989]/20 text-[#D56989] font-semibold hover:bg-white/80 transition-all">
+          Watch Demo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- (Other sections like Features, How it Works, Testimonials, Pricing, Footer go here — same structure, can be added next) -->
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Activate Lucide icons
+    lucide.replace();
+  </script>
+</body>
+</html>
